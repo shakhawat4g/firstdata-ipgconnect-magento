@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <fdmsconnect_adminhtml_fdmsconnect_index>
+        <reference name="content">
+            <block type="fdmsconnect/adminhtml_fdmsconnect" name="fdmsconnect" />
+        </reference>
+    </fdmsconnect_adminhtml_fdmsconnect_index>
+</layout>

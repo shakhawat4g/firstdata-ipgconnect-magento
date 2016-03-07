@@ -1,0 +1,172 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Bocansey_FdmsConnect Connect Plugin
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ *
+ * @category   Bocansey
+ * @package    Bocansey_FdmsConnect
+ * @author     Bright Ocansey <bright.ocansey@gmail.com>
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+-->
+<config>
+	<modules>
+		<Bocansey_FdmsConnect>
+			<version>1.0.0</version>
+		</Bocansey_FdmsConnect>
+	</modules>
+	<global>
+		<models>
+			<fdmsconnect>
+				<class>Bocansey_FdmsConnect_Model</class>
+                <resourceModel>fdmsconnect_mysql4</resourceModel>
+			</fdmsconnect>
+            <fdmsconnect_mysql4>
+                <class>Bocansey_FdmsConnect_Model_Mysql4</class>
+                <entities>
+                    <fdmsconnect>
+                        <table>fdmsconnect</table>
+                    </fdmsconnect>
+                </entities>
+            </fdmsconnect_mysql4>
+		</models>
+		<blocks>
+			<fdmsconnect>
+				<class>Bocansey_FdmsConnect_Block</class>
+			</fdmsconnect>
+		</blocks>
+		<helpers>
+			<fdmsconnect>
+				<class>Bocansey_FdmsConnect_Helper</class>
+			</fdmsconnect>
+		</helpers>
+		<resources>
+			<fdmsconnect_setup>
+				<setup>
+					<module>Bocansey_FdmsConnect</module>
+					<class>Bocansey_FdmsConnect_Model_Setup</class>
+				</setup>
+				<connection>
+					<use>core_setup</use>
+				</connection>
+			</fdmsconnect_setup>
+			<fdmsconnect_write>
+				<connection>
+					<use>core_write</use>
+				</connection>
+			</fdmsconnect_write>
+			<fdmsconnect_read>
+				<connection>
+					<use>core_read</use>
+				</connection>
+			</fdmsconnect_read>
+		</resources>
+		<payment>
+			<cc>
+				<types>
+					<VI>
+						<code>VI</code>
+						<name>Visa</name>
+						<order>0</order>
+					</VI>
+					<MC>
+						<code>MC</code>
+						<name>MasterCard</name>
+						<order>100</order>
+					</MC>
+					<AM>
+						<code>AM</code>
+						<name>American Express</name>
+						<order>200</order>
+					</AM>
+				</types>
+			</cc>
+		</payment>
+	</global>
+	<frontend>
+		<routers>
+			<fdmsconnect>
+				<use>standard</use>
+				<args>
+					<module>Bocansey_FdmsConnect</module>
+					<frontName>fdmsconnect</frontName>
+				</args>
+			</fdmsconnect>
+		</routers>
+		
+		<layout>
+			<updates>
+				<fdmsconnect>
+					<file>fdmsconnect.xml</file>
+				</fdmsconnect>
+			</updates>
+		</layout>
+	</frontend>
+
+	<adminhtml>
+		<!--<routers>
+			<fdmsconnect>
+				<use>admin</use>
+				<args>
+					<module>Bocansey_FdmsConnect</module>
+					<frontName>fdmsconnect</frontName>
+				</args>
+			</fdmsconnect>
+		</routers>-->
+		<menu>
+			<sales module="sales">
+				<children>
+					<fdmsconnect module="fdmsconnect">
+						<title>FDMS Connect Transactions</title>
+						<sort_order>300</sort_order>
+						<action>fdmsconnect/adminhtml_fdmsconnect</action>
+					</fdmsconnect>
+				</children>
+			</sales>
+		</menu>
+		<acl>
+			<resources>
+				<all>
+					<title>Allow Everything</title>
+				</all>
+				<admin>
+					<children>
+						<sales>
+							<children>
+								<fdmsconnect>
+									<title>FDMS Connect Transactions</title>
+									<sort_order>10</sort_order>
+								</fdmsconnect>
+							</children>
+						</sales>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+		<layout>
+			<updates>
+				<fdmsconnect>
+					<file>fdmsconnect.xml</file>
+				</fdmsconnect>
+			</updates>
+		</layout>
+	</adminhtml>
+	<default>
+		<payment>
+			<fdmsconnect>
+				<active>0</active>
+				<title>FDMS Connect Payment Gateway</title>
+				<model>fdmsconnect/redirect</model>
+				<order_status>processing</order_status>
+				<payment_action>authorize</payment_action>
+			</fdmsconnect>
+		</payment>
+	</default>
+</config>
