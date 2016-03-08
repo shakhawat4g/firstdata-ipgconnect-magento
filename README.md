@@ -12,12 +12,19 @@ just copy this downloaded module (which also have /app as root directory) over t
 copying over this will not overwrite any existing files in Magento core /app.
 
 4. Login to admin panel of your Magento. 
-		>> Go to -> System-> Configuration -> Sales -> Payment Methods
-			>> Select 'Yes' under First Data IPG Connect 
-				>> Select 'Yes' under "Test Environment" for testing the module or 
+
+			>> Go to -> System-> Configuration -> Sales -> Payment Methods
+			
+				>> Select 'Yes' under First Data IPG Connect 
+				
+					>> Select 'Yes' under "Test Environment" for testing the module or
+					
 					>> Select 'No'  under "Test Environment" if you want to go Live.
+					
 		>> Populate your Store ID (if you don't have this, contact fdmsipgconnect@firstdata.com)
+		
 		>> Populate your Shared Secret (if you don't have this, contact fdmsipgconnect@firstdata.com)
+		
 		>> Click Save Config button
 
 
