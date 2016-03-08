@@ -1,5 +1,5 @@
 # First Data EMEA IPG Connect - Magento Extension
-First Data EMEA Connect Hosted Payment Page plugin for Magento.
+
 
 This First Data Europe Middle East Africa (EMEA) Internet Payment Gateway (IPG) Magento extension enables card payments in your Magento powered webshop by redirecting cardholders to First Data secured servers to enter their Credit/Debit card details.
 
