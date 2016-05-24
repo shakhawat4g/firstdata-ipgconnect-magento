@@ -14,14 +14,21 @@
  * @author     Bright Ocansey <bright.ocansey@gmail.com>
  * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
+class Bocansey_Fdmsconnect_Model_Source_Currency
+{
+    public function toOptionArray()
+    {
+        return array(
+            array(
+                'value' => 'base',
+                'label' => Mage::helper('fdmsconnect')->__('Use Base Currency')
+            ),
+            array(
+                'value' => 'display',
+                'label' => Mage::helper('fdmsconnect')->__('Use Display Currency')
+            ),
+        );
+    }
+}
+
 ?>
-<fieldset class="form-list">
-    <?php $_code=$this->getMethodCode() ?>
-    
-    <?php $redirect = Mage::getModel('fdmsconnect/redirect'); ?>
-     <ul id="payment_form_<?php echo $_code ?>" style="display:none">
-        <li>
-            <?php echo $this->__('You will be redirected to First Data secured payment pages to enter your card details.') ?>
-        </li>
-    </ul>
-</fieldset>

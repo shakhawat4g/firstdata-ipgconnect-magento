@@ -1,4 +1,5 @@
-<?php
+<?xml version="1.0"?>
+<!--
 /**
  * Bocansey_Fdmsconnect Connect Plugin
  *
@@ -14,14 +15,15 @@
  * @author     Bright Ocansey <bright.ocansey@gmail.com>
  * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
-?>
-<fieldset class="form-list">
-    <?php $_code=$this->getMethodCode() ?>
-    
-    <?php $redirect = Mage::getModel('fdmsconnect/redirect'); ?>
-     <ul id="payment_form_<?php echo $_code ?>" style="display:none">
-        <li>
-            <?php echo $this->__('You will be redirected to First Data secured payment pages to enter your card details.') ?>
-        </li>
-    </ul>
-</fieldset>
+-->
+<config>
+    <modules>
+    	<Bocansey_Fdmsconnect>
+        	<active>true</active>
+			<codePool>local</codePool>
+			<depends>
+            	<Mage_Payment />
+			</depends>
+		</Bocansey_Fdmsconnect>
+	</modules>
+</config>

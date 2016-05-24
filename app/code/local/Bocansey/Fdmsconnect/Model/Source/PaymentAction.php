@@ -14,14 +14,21 @@
  * @author     Bright Ocansey <bright.ocansey@gmail.com>
  * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
+class Bocansey_Fdmsconnect_Model_Source_PaymentAction
+{
+    public function toOptionArray()
+    {
+        return array(
+            array(
+                'value' => Mage_Fdmsconnect_Model_Redirect::ACTION_AUTHORIZE,
+                'label' => Mage::helper('fdmsconnect')->__('Defer Settlement')
+            ),
+            array(
+                'value' => Mage_Fdmsconnect_Model_Redirect::ACTION_AUTHORIZE_CAPTURE,
+                'label' => Mage::helper('fdmsconnect')->__('Settle Immediately')
+            ),
+        );
+    }
+}
+
 ?>
-<fieldset class="form-list">
-    <?php $_code=$this->getMethodCode() ?>
-    
-    <?php $redirect = Mage::getModel('fdmsconnect/redirect'); ?>
-     <ul id="payment_form_<?php echo $_code ?>" style="display:none">
-        <li>
-            <?php echo $this->__('You will be redirected to First Data secured payment pages to enter your card details.') ?>
-        </li>
-    </ul>
-</fieldset>

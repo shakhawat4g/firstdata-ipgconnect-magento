@@ -14,14 +14,10 @@
  * @author     Bright Ocansey <bright.ocansey@gmail.com>
  * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
-?>
-<fieldset class="form-list">
-    <?php $_code=$this->getMethodCode() ?>
-    
-    <?php $redirect = Mage::getModel('fdmsconnect/redirect'); ?>
-     <ul id="payment_form_<?php echo $_code ?>" style="display:none">
-        <li>
-            <?php echo $this->__('You will be redirected to First Data secured payment pages to enter your card details.') ?>
-        </li>
-    </ul>
-</fieldset>
+class Bocansey_Fdmsconnect_Model_Source_Cctype extends Mage_Payment_Model_Source_Cctype
+{
+    public function getAllowedTypes()
+    {
+        return array('VI', 'MC', 'AE');
+    }
+}
